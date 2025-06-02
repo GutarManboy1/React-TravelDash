@@ -8,7 +8,7 @@ import { redirect } from "react-router";
 export async function clientLoader() {
   try {
     const user = await account.get();
-    if (!user.$id) return redirect("/");
+    if (user.$id) return redirect("/");
   } catch (error) {
     console.error("Error getting user:", error);
   }
